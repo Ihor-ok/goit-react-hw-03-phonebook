@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    
     const contacts = JSON.parse(localStorage.getItem(LS_KEY)) 
     
     if (contacts) {
@@ -26,15 +27,23 @@ class App extends Component {
   }
   
   componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts))
+    if (this.state.contacts.length === 0) {
+      localStorage.removeItem(LS_KEY)
+   
+    }
+
+
+    if (this.state.contacts.length > 0) {
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts))
+    }
+    
   }
 
   handleSubmit = (values, { resetForm }) => {
     
     const contact = { ...values }
     contact.id = nanoid()
-    console.log(contact);
-    
+       
 
     if (this.state.contacts.find(contactState => contactState.name.toLocaleLowerCase() === contact.name.toLocaleLowerCase())) {
       alert(`${contact.name} is already in contacts.`)

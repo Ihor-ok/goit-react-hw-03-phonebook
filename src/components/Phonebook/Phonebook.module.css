@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+label {
+    margin-bottom: 10px;
+    
+}
+
+.input_name {
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 25px;
+}
+
+.input_error {
+    margin-left: 67px;
+    color: crimson;
+}
+
+.input_tel {
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
